@@ -1,8 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row justify-content-center">
+    <div class="col-md-6 card main-card bg-white">
+        <h2 class="text-center mb-4">کوتاه‌کننده لینک حرفه‌ای</h2>
+
+        <form asp-controller="Home" asp-action="Shorten" method="post">
+            <div class="input-group mb-3">
+                <input type="url" name="longUrl" class="form-control" placeholder="لینک طولانی را اینجا وارد کنید (http://...)" required>
+                <button class="btn btn-primary" type="submit">کوتاه کن!</button>
+            </div>
+        </form>
+
+        @if (ViewBag.ShortUrl != null)
+        {
+            <div class="alert alert-success mt-4 text-center">
+                <p class="mb-2">لینک کوتاه شما آماده است:</p>
+                <a href="@ViewBag.ShortUrl" target="_blank" class="fw-bold text-decoration-none">@ViewBag.ShortUrl</a>
+                <hr>
+                <small class="text-muted">این لینک در Redis ذخیره شده و تا ۷ روز معتبر است.</small>
+            </div>
+        }
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger mt-3">
+                @ViewBag.Error
+            </div>
+        }
+    </div>
 </div>

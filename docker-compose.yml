@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # سرویس وب‌اپلیکیشن دات‌نت
+  web-app:
+      image: miladlo/shortener-link-api:latest
+    ports:
+      - "8081:8080" # پورت سیستم شما 8081 است تا با پروژه‌های قبلی تداخل نداشته باشد
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Redis=redis-db:6379 # نام سرویس ردیس در شبکه داخلی داکر
+    depends_on:
+      - redis-db
+    networks:
+      - shortlink-network
+
+  # سرویس دیتابیس ردیس
+  redis-db:
+    image: "redis:alpine"
+    container_name: shortlink_redis
+    ports:
+      - "6380:6379" # پورت سیستم شما 6380 است تا با ردیس‌های دیگر تداخل نداشته باشد
+    volumes:
+      - redis_data:/data
+    networks:
+      - shortlink-network
+
+# ایجاد یک شبکه اختصاصی برای ارتباط امن داخلی بین اپلیکیشن و ردیس
+networks:
+  shortlink-network:
+    driver: bridge
+
+# ایجاد Volume برای ماندگاری داده‌های ردیس حتی پس از خاموش شدن کانتینر
+volumes:
+  redis_data:
