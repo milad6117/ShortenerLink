@@ -11,7 +11,7 @@ namespace ShortenerLink.Test
         private readonly Mock<IDistributedCache> _cacheMock;
         private readonly LinkShortenerService _linkShortenerService;
 
-        public LinkShortenerServiceTest(Mock<IDistributedCache> cacheMock, LinkShortenerService linkShortenerService)
+        public LinkShortenerServiceTest()
         {
             _cacheMock = new Mock<IDistributedCache>();
             _linkShortenerService = new LinkShortenerService(_cacheMock.Object);
