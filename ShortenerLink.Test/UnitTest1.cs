@@ -13,8 +13,8 @@ namespace ShortenerLink.Test
 
         public LinkShortenerServiceTest(Mock<IDistributedCache> cacheMock, LinkShortenerService linkShortenerService)
         {
-            _cacheMock = cacheMock;
-            _linkShortenerService = linkShortenerService;
+            _cacheMock = new Mock<IDistributedCache>();
+            _linkShortenerService = new LinkShortenerService(_cacheMock.Object);
         }
         #endregion
 
