@@ -1,4 +1,4 @@
-bin/
-obj/
-.git/
-.github/
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
