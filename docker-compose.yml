@@ -3,7 +3,10 @@ version: '3.8'
 services:
   # سرویس وب‌اپلیکیشن دات‌نت
   web-app:
-      image: miladlo/shortener-link-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: miladlo/shortener-link-api:latest
     ports:
       - "8081:8080" # پورت سیستم شما 8081 است تا با پروژه‌های قبلی تداخل نداشته باشد
     environment:

@@ -1,6 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ShortenerLink.Service\ShortenerLink.Service.csproj" />
     <ProjectReference Include="..\ShortenerLink.Test\ShortenerLink.Test.csproj" />
   </ItemGroup>
@@ -9,6 +13,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>de489c10-c16f-4213-b193-98a42f44e0eb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
 </Project>
