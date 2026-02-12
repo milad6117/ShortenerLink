@@ -5,8 +5,8 @@ services:
   web-app:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: miladlo/shortener-link-api:latest
+      dockerfile: ./ُShortenerLink.Web/Dockerfile
+    image: miladlotfi/shortener-link-api:latest
     ports:
       - "8081:8080" # پورت سیستم شما 8081 است تا با پروژه‌های قبلی تداخل نداشته باشد
     environment:
