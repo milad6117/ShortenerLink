@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-                file: ./ShortenerLink.Web/Dockerfile
+          file: ./ShortenerLink.Web/Dockerfile
           push: true
           # نام ایمیج را دقیقا مطابق با docker-compose تنظیم کردم
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/shortener-link-api:latest
